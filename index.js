@@ -1,7 +1,7 @@
 let numberOfDogPictures = 3;
 
 function displayDogImgs(item) {
-    $(".results").append(`<img src="${item}" alt="Picture of dog">`);   
+    $(".results").append(`<div class="dog-img"><img src="${item}" alt="Picture of dog"></div>`);   
 }
 
 function handleDogImgsArray(responseJson) {
