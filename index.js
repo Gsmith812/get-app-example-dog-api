@@ -6,6 +6,7 @@ function displayDogImgs(item) {
 
 function handleDogImgsArray(responseJson) {
     arrayOfDogImgs = responseJson.message;
+    console.log(responseJson)
     return arrayOfDogImgs.map(item => displayDogImgs(item));
 }
 
@@ -18,8 +19,13 @@ function getDogImages() {
 function handleSubmitClicked() {
     $("form").submit(event => {
         event.preventDefault();
+        let userInput = $("input").val();
         $(".results").empty();
-        numberOfDogPictures = $("input").val();
+        if (userInput === "") {
+            numberOfDogPictures = 3;
+        } else {
+            numberOfDogPictures = $("input").val();
+        }            
         $(".results").append("<h2>Here are those fur babies you requested!</h2>")
         getDogImages();
     });
